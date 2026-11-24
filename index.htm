@@ -1,1 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tshilemo Astinda – Video Creator & Motion Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EAEEF6; --surface:#FFFFFF; --ink:#141A26; --muted:#4D5668; --line:#C9D1E0;
+  --blue:#2437E8; --sun:#FFC83D; --on-blue:#FFFFFF;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#10141E; --surface:#192033; --ink:#EDF0F8; --muted:#A5AEC2; --line:#2B3550;
+    --blue:#7C8BFF; --sun:#FFC83D; --on-blue:#10141E; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10141E; --surface:#192033; --ink:#EDF0F8; --muted:#A5AEC2; --line:#2B3550;
+  --blue:#7C8BFF; --sun:#FFC83D; --on-blue:#10141E; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 "Instrument Sans",system-ui,sans-serif}
+html[data-lang="en"] .fr,html[data-lang="fr"] .en{display:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
 
+.bar{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+.bar b{font-family:"Bricolage Grotesque",sans-serif;font-weight:800}
+.lang{display:flex;gap:.25rem;border:1.5px solid var(--line);border-radius:999px;padding:.2rem}
+.lang button{font:600 .9rem "Instrument Sans",sans-serif;border:0;background:none;color:var(--muted);padding:.35rem .8rem;border-radius:999px;cursor:pointer}
+html[data-lang="en"] .lang [data-set="en"],html[data-lang="fr"] .lang [data-set="fr"]{background:var(--blue);color:var(--on-blue)}
+
+.hero{padding:3rem 0 2.5rem}
+.hero h1{font-weight:800;font-size:clamp(2.8rem,10vw,6.5rem);letter-spacing:-.03em}
+.role{font-size:clamp(1.15rem,3vw,1.5rem);margin:1rem 0 0;color:var(--muted);max-width:34ch}
+.lede{max-width:60ch;margin:1.5rem 0 0}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:.8rem 1.3rem;border-radius:10px;background:var(--blue);color:var(--on-blue)}
+.btn.alt{background:none;color:var(--ink);border:1.5px solid var(--ink)}
+
+.timeline{margin-top:2.5rem;position:relative;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);padding:.75rem;overflow:hidden}
+.track{display:flex;gap:4px;margin:4px 0}
+.clip{height:22px;border-radius:5px;background:var(--blue)}
+.clip.s{background:var(--sun)}.clip.i{background:var(--ink);opacity:.85}.clip.g{background:var(--line)}
+.playhead{position:absolute;top:0;bottom:0;left:0;width:2px;background:var(--sun);animation:scrub 3.2s cubic-bezier(.6,0,.2,1) 1 forwards}
+@keyframes scrub{to{left:calc(100% - 2px)}}
+@media (prefers-reduced-motion:reduce){.playhead{animation:none;left:62%}}
+
+section{padding:3rem 0;border-top:1.5px solid var(--line)}
+h2{font-weight:800;font-size:clamp(1.9rem,5vw,3rem);letter-spacing:-.02em;margin-bottom:1.75rem}
+.work{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.piece{display:flex;flex-direction:column;gap:1rem}
+.frame{aspect-ratio:9/16;border-radius:22px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem;text-decoration:none;color:#fff;max-height:70vh;width:100%;transition:transform .25s}
+.frame:hover{transform:translateY(-4px)}
+.f1{background:linear-gradient(160deg,#2437E8 0 55%,#141A26 55%)}
+.f2{background:linear-gradient(200deg,#FFC83D 0 40%,#2437E8 40%)}
+.f3{background:linear-gradient(120deg,#141A26 0 45%,#7C8BFF 45%)}
+.f2 .tag{color:#141A26}
+.play{position:absolute;top:50%;left:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.92)}
+.play::after{content:"";position:absolute;left:25px;top:19px;border-left:21px solid #141A26;border-top:13px solid transparent;border-bottom:13px solid transparent}
+.tag{font:800 1.5rem "Bricolage Grotesque",sans-serif;line-height:1.1}
+.tag small{display:block;font:600 .9rem "Instrument Sans",sans-serif;opacity:.9;margin-top:.3rem}
+.piece h3{font-size:1.35rem}
+.piece p{margin:.4rem 0 0;color:var(--muted)}
+.piece .link{font-weight:600;color:var(--blue);text-underline-offset:3px}
+.tools{margin-top:1.75rem;color:var(--muted)}
+
+.skills{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.skill{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:1.25rem}
+.skill h3{font-size:1.2rem;margin-bottom:.4rem}
+.skill p{margin:0;color:var(--muted)}
+.facts{margin-top:1.5rem;color:var(--muted)}
+
+.contact a.big{display:block;font:800 clamp(1.4rem,5.5vw,2.6rem) "Bricolage Grotesque",sans-serif;text-decoration:none;overflow-wrap:anywhere;margin:.35rem 0}
+.contact a.big:hover{color:var(--blue)}
+footer{padding:2rem 0 2.5rem;color:var(--muted);font-size:.95rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <b>Tshilemo Astinda</b>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set="en">EN</button>
+      <button type="button" data-set="fr">FR</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <h1>Tshilemo<br>Astinda</h1>
+    <p class="role">Professional Video Creator &amp; Motion Designer</p>
+    <p class="lede">
+      <span class="en">I create advertising videos and motion design that grab attention in the first seconds and hold it to the last. With 3 years of experience, I combine strong rhythm, clear visual storytelling, 2D animation and 3D advertising visuals, with posters built into the design instead of pasted on top. I work remotely with brands and agencies worldwide.</span>
+      <span class="fr">Je crée des vidéos publicitaires et du motion design qui captent l’attention dès les premières secondes. Avec 3 ans d’expérience, j’allie rythme, storytelling visuel, animation 2D, visuels publicitaires 3D et affiches intégrées au design. Je travaille à distance avec des marques et des agences du monde entier.</span>
+    </p>
+    <div class="cta">
+      <a class="btn" href="#work"><span class="en">See the work</span><span class="fr">Voir les créations</span></a>
+      <a class="btn alt" href="#contact"><span class="en">Get in touch</span><span class="fr">Me contacter</span></a>
+    </div>
+    <div class="timeline" aria-hidden="true">
+      <div class="track"><div class="clip" style="width:22%"></div><div class="clip s" style="width:12%"></div><div class="clip" style="width:30%"></div><div class="clip i" style="width:18%"></div><div class="clip s" style="width:14%"></div></div>
+      <div class="track"><div class="clip g" style="width:10%"></div><div class="clip i" style="width:26%"></div><div class="clip" style="width:16%"></div><div class="clip g" style="width:24%"></div><div class="clip s" style="width:20%"></div></div>
+      <div class="track"><div class="clip s" style="width:34%"></div><div class="clip g" style="width:30%"></div><div class="clip" style="width:32%"></div></div>
+      <div class="playhead"></div>
+    </div>
+  </header>
+
+  <section id="work">
+    <h2><span class="en">Selected work</span><span class="fr">Créations choisies</span></h2>
+    <div class="work">
+      <article class="piece">
+        <a class="frame f1" href="https://www.tiktok.com/@prophete_tshims_astinda/video/7704632446855171348" target="_blank" rel="noopener" aria-label="Project 1 on TikTok"><span class="play"></span><span class="tag">TikTok<small><span class="en">Project 1</span><span class="fr">Projet 1</span></small></span></a>
+        <div>
+          <h3><span class="en">Hook-first storytelling</span><span class="fr">Storytelling dès le premier plan</span></h3>
+          <p><span class="en">A structure built on rhythm and one clear message, guiding the viewer from the first frame to the call to action. Animated typography and transitions follow the pace of voice and music.</span><span class="fr">Une structure bâtie sur le rythme et un message clair, qui guide le spectateur du premier plan à l’appel à l’action. Typographie animée et transitions calées sur la voix et la musique.</span></p>
+          <p><a class="link" href="https://www.tiktok.com/@prophete_tshims_astinda/video/7704632446855171348" target="_blank" rel="noopener"><span class="en">Watch on TikTok</span><span class="fr">Voir sur TikTok</span></a></p>
+        </div>
+      </article>
+      <article class="piece">
+        <a class="frame f2" href="https://www.tiktok.com/@prophete_tshims_astinda/video/7709507427116256532" target="_blank" rel="noopener" aria-label="Project 2 on TikTok"><span class="play"></span><span class="tag">TikTok<small><span class="en">Project 2</span><span class="fr">Projet 2</span></small></span></a>
+        <div>
+          <h3><span class="en">Concept-led 2D motion</span><span class="fr">Motion 2D guidé par le concept</span></h3>
+          <p><span class="en">Script, voice-over and visuals designed together for one cohesive result. 2D animation and motion graphics, with advertising visuals integrated into the layout.</span><span class="fr">Scénario, voix off et visuels conçus ensemble pour un résultat cohérent. Animation 2D et motion graphics, avec des visuels publicitaires intégrés à la mise en page.</span></p>
+          <p><a class="link" href="https://www.tiktok.com/@prophete_tshims_astinda/video/7709507427116256532" target="_blank" rel="noopener"><span class="en">Watch on TikTok</span><span class="fr">Voir sur TikTok</span></a></p>
+        </div>
+      </article>
+      <article class="piece">
+        <a class="frame f3" href="https://www.tiktok.com/@prophete_tshims_astinda/video/7703964293347183892" target="_blank" rel="noopener" aria-label="Project 3 on TikTok"><span class="play"></span><span class="tag">TikTok<small><span class="en">Project 3</span><span class="fr">Projet 3</span></small></span></a>
+        <div>
+          <h3><span class="en">Short-form advertising impact</span><span class="fr">Impact publicitaire en format court</span></h3>
+          <p><span class="en">Social-first storytelling: an immediate hook, tight editing and dynamic motion design. 3D-style visuals and posters blend into the video’s design language.</span><span class="fr">Storytelling pensé pour les réseaux : accroche immédiate, montage serré et motion design dynamique. Visuels de style 3D et affiches fondus dans le langage visuel de la vidéo.</span></p>
+          <p><a class="link" href="https://www.tiktok.com/@prophete_tshims_astinda/video/7703964293347183892" target="_blank" rel="noopener"><span class="en">Watch on TikTok</span><span class="fr">Voir sur TikTok</span></a></p>
+        </div>
+      </article>
+    </div>
+    <p class="tools"><span class="en">Tools: Claude, ChatGPT, ElevenLabs, CapCut, Canva, plus other creative software as each project requires.</span><span class="fr">Outils : Claude, ChatGPT, ElevenLabs, CapCut, Canva, et d’autres logiciels créatifs selon les besoins de chaque projet.</span></p>
+  </section>
+
+  <section id="skills">
+    <h2><span class="en">Skills &amp; production capabilities</span><span class="fr">Compétences &amp; capacités de production</span></h2>
+    <div class="skills">
+      <div class="skill"><h3><span class="en">Advertising videos</span><span class="fr">Vidéos publicitaires</span></h3><p><span class="en">Concept, script, editing and call-to-action design.</span><span class="fr">Concept, scénario, montage et conception de l’appel à l’action.</span></p></div>
+      <div class="skill"><h3>Motion design</h3><p><span class="en">Animated typography, transitions, rhythm-driven editing.</span><span class="fr">Typographie animée, transitions, montage au rythme.</span></p></div>
+      <div class="skill"><h3><span class="en">2D animation &amp; 3D visuals</span><span class="fr">Animation 2D &amp; visuels 3D</span></h3><p><span class="en">Advertising visuals that add depth and impact.</span><span class="fr">Des visuels publicitaires qui apportent profondeur et impact.</span></p></div>
+      <div class="skill"><h3><span class="en">Advertising posters</span><span class="fr">Affiches publicitaires</span></h3><p><span class="en">Integrated into the content and the design, not added on top.</span><span class="fr">Intégrées au contenu et au design, pas simplement ajoutées.</span></p></div>
+      <div class="skill"><h3><span class="en">Social media content</span><span class="fr">Contenus réseaux sociaux</span></h3><p><span class="en">Vertical formats for TikTok, Reels and Shorts.</span><span class="fr">Formats verticaux pour TikTok, Reels et Shorts.</span></p></div>
+      <div class="skill"><h3><span class="en">AI-assisted production</span><span class="fr">Production assistée par IA</span></h3><p><span class="en">Scripting, voice-over and ideation with Claude, ChatGPT and ElevenLabs.</span><span class="fr">Écriture, voix off et idéation avec Claude, ChatGPT et ElevenLabs.</span></p></div>
+      <div class="skill"><h3><span class="en">Software adaptability</span><span class="fr">Adaptabilité logicielle</span></h3><p><span class="en">I learn and use the tools each project requires.</span><span class="fr">J’apprends et j’utilise les outils que chaque projet demande.</span></p></div>
+      <div class="skill"><h3>Storytelling</h3><p><span class="en">Clear, emotional visual narratives.</span><span class="fr">Des récits visuels clairs et émotionnels.</span></p></div>
+    </div>
+    <p class="facts"><span class="en">Education: Diploma in General Electricity. Languages: French (fluent), English (beginner).</span><span class="fr">Formation : diplôme en électricité générale. Langues : français (courant), anglais (débutant).</span></p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2><span class="en">Let’s work together</span><span class="fr">Travaillons ensemble</span></h2>
+    <a class="big" href="mailto:tshilemoastinda@gmail.com">tshilemoastinda@gmail.com</a>
+    <a class="big" href="https://wa.me/243995484080" target="_blank" rel="noopener">WhatsApp +243 995 484 080</a>
+    <p><span class="en">Democratic Republic of the Congo. Available remotely worldwide.</span><span class="fr">République démocratique du Congo. Disponible à distance dans le monde entier.</span></p>
+  </section>
+
+  <footer>© Tshilemo Astinda</footer>
+</div>
+<script>
+(function(){
+  var root=document.documentElement;
+  document.querySelectorAll('[data-set]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var l=b.getAttribute('data-set');
+      root.setAttribute('data-lang',l);
+      root.setAttribute('lang',l);
+    });
+  });
+})();
+</script>
+</body>
+</html>
